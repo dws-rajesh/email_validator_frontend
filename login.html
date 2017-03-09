@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>    <html lang="en" class="ie"> <![endif]-->
+<!--[if lt IE 11]> <html lang="en" class="ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="Email Validator" name="keywords">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Email Validator</title><!-- Meta -->
+	<meta content="Default Description" name="description">
+	<meta content="email" name="author">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"	rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+		<!--animate-->
+	<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+	<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+	<!--//end-animate-->
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$("#button").click(function() {
+	   $('html, body').animate({ scrollTop: $("#myDiv").offset().top  }, 2000);
+	  });
+	});
+	   function ValidateEmail(email) {
+	       var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	       return expr.test(email);
+	   };
+	   $("#btnValidate").live("click", function () {
+	       if (!ValidateEmail($("#txtEmail").val())) {
+	         $(".error-mesg").text("Please provide correct email address.");  
+	         $('.fa-times').show();
+	          window.setTimeout($('#form').submit(), 9000);
+	       }
+	       else {
+	             $('.fa-check').show();
+	             $('.fa-times').hide();
+	             $(".error-mesg").hide();            
+	       }
+	   });
+	</script>
+
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="col-md-3 col-sm-3">
+				<div class="logo">
+				<a href="#"><img class="img-responsive" src="images/e-logo.png"></a>
+				</div>
+			</div>
+		</div>
+	</header><!--end header-->
+	<section class="login-form-page">
+		<div class="main-login-box">
+			<div class="green-map-panel">
+				<div class="login-map"><img class="img-responsive" src="images/map-bg.png"></div>
+				<div class="left-content-area">
+					<h4>Upgrade your package to get more.</h4>
+					<ul class="list-content">
+						<li>
+							<a href="#">Upgrade your pacakage to get more.</a>
+						</li>
+						<li>
+							<a href="#">Package started39$/month</a>
+						</li>
+						<li>
+							<a href="#">download results in CSV</a>
+						</li>
+						<li>
+							<a href="#">Upgrade your pacakage to get more.</a>
+						</li>
+						<li>
+							<a href="#">Access the API for Developers</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="login-grom-area">
+				
+				<div class="inner-login-form-box">
+				<h2>Welcome back!</h2>
+					<div class="first-row">
+						<input id="txtEmail" name="email" placeholder="Email Address" type=
+						"text"> <i aria-hidden="true" class="fa fa-check"></i> <i aria-hidden=
+						"true" class="fa fa-times"></i>
+						<p class="error-mesg"></p>
+					</div>
+					<div class="first-row">
+						<input name="password" placeholder="Password" type="password"> 
+						<!--<i class="fa fa-check" aria-hidden="true"></i>
+							<i class="fa fa-times" aria-hidden="true"></i>-->
+						<p class="p-error-mesg">Password must have At least one upper case latter
+						and number.</p>
+					</div>
+					<div class="first-row">
+						<input class="login-btn" id="btnValidate" type="submit" value="Log in">
+					</div>
+					<div class="in-box-login">
+						<p>Don’t have an account? <a href="#">Sign up today</a></p>
+						<p><a href="#">Forgot your password?</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<div class="backdown-btn" id="button"><a href="javascript:void(0)" ><img class="img-responsive" src="images/white-down-arrow.png"></a>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+			    <div class="footer-logo" id="myDiv">
+					<a href="#"><img class="img-responsive" src="images/logo.png"></a>
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5 col-xs-12 fo-txt">
+				<p>“Look up by domain, first name or verify<br>
+				existing emails”</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<ul class="footer-menu">
+					<li>
+						<a href="#">FAQ</a>
+					</li>
+					<li>
+						<a href="#">About Us</a>
+					</li>
+					<li>
+						<a href="#">Support</a>
+					</li>
+				</ul>
+				<div class="social-icon-footer">
+					<div class="lft-panel">
+						<p>Follow us on social media</p>
+					</div>
+					<div class="rft-panel">
+						<ul class="social-ico">
+							<li>
+								<a class="facebook-ico" href="#"><i aria-hidden="true" class=
+								"fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a class="inkdin-ico" href="#"><i aria-hidden="true" class=
+								"fa fa-linkedin"></i></a>
+							</li>
+							<li>
+								<a class="twitter-ico" href="#"><i aria-hidden="true" class=
+								"fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a class="google-ico" href="#"><i aria-hidden="true" class=
+								"fa fa-google-plus"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copy-right-txt">
+			<p>© 2017 emailpill. All rights reserved. Terms of Use and Privacy
+			Policy</p>
+		</div>
+	</footer>
+</body>
+</html>

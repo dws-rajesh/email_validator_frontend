@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 10 ]>    <html lang="en" class="ie"> <![endif]-->
+<!--[if lt IE 11]> <html lang="en" class="ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="Email Validator" name="keywords">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Email Deshboard</title>
+	<!-- Meta -->
+	<meta content="Default Description" name="description">
+	<meta content="email" name="author">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="js/script.js"></script>
+		<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- custom scrollbar stylesheet -->
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body  ng-controller="AccordionDemoCtrl" ng-app="myApp">
+<div class="sidebar">
+	     <div class="user-panel">
+		    <div class="user-pic"><img src="images/user-pic.png" class="img-responsive"></div>
+			<div class="user-details">
+			<h3>Werner Heisenberg</h3>
+			<div class="linebar"><div class="progress-bar-status"></div></div>
+			<p>Requests 51/200</p>
+			</div>
+			<div class="clear"></div>
+		 </div>
+		 <div class="sidebar-navigationbar">
+			<ul class="nav-bar-side">
+				<li class="active"><a href="#"><i class="deshb-ico"></i>Deshboard</a></li>
+				<li><a href="#"><i class="search-ico"> </i>Search</a></li>
+				<li><a href="#"><i class="bulk-ico"> </i>Bulk</a></li>
+				<li><a href="#"><i class="group-ico"> </i>Groups</a></li>
+				<li><a href="#"><i class="history-ico"> </i>History</a></li>
+				<li><a href="#"><i class="logout-ico"> </i>Logout</a></li>
+			</ul>
+		 </div>
+	   </div>
+    <div class="main-wrapper-deshboard">
+	   <div class="togbtn"><a href="javascript:void(0)" id="m-menu"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
+
+	   <div class="page-wrapper">
+	    	<section class="search-validation-form  deshboard-page">
+		<div class="outer-panel">
+
+			<h1>Let’s End Your Search Here!</h1>
+			<div class="inner-search-box-area">
+				<div class="dropdown">
+					<button class="dropdown-toggle domain-btn" data-toggle="dropdown" id="name-btn" type="button">By Domain</button>
+					<ul class="dropdown-menu drop-pannel">
+						<li id="bydomain">
+							<a href="javascript:void(0)"  class="bydom">By Domain</a>
+						</li>
+						<li  id="bypropect">
+							<a href="javascript:void(0)">By Prospect</a>
+						</li>
+						<li id="verifyemail">
+							<a href="javascript:void(0)">Verify Email</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="search-panel" id="comanyname-search-field">
+				<div class="inner-s-panel">
+				<form name="myForm">
+				<div class="domain-t-field">
+			    	<input class="com-name-txt"  ng-model="searchterm"  name="searchterm" ng-pattern="emailFormat" required="" type="text">
+			        	<input  type="submit" value="search" ng-click="getItems()">
+                 </div>				
+					  <span class="error" ng-show="myForm.searchterm.$error.required"> Required Domain Name</span>
+					  <span class="error" ng-show="myForm.searchterm.$error.pattern">Please Enter Invalid Domain</span>
+				
+					
+			    </form>
+				</div>
+				<p>Enter domain to find email addresses. For example, try <a href="#">domain.com</a> or <a href="#">name@company.com</a></p>
+			</div>
+			<div class="search-panel" id="prospect-search-field">
+				<div class="inner-s-panel">
+					<div class="domain-t-field">
+						<ul class="divide-txt-field">
+							<li><input class="fullname-txt" name="full name" placeholder="Full Name" type="text"></li>
+							<li><input class="domain-txt" name="domain" placeholder="Domain" type="text"></li>
+						</ul><input id="flip2" type="submit" value="search">
+					</div>
+				</div>
+				<p>Enter full name and Domain name to find professional email addresses. eg <a href="#">Steve Jobs</a> & <a href="#">apple.com</a></p>
+			</div>
+			<div class="search-panel" id="verifyemail-search-field">
+				<div class="inner-s-panel">
+					<div class="domain-t-field">
+					<input class="verify-email-txt" name="verify email" placeholder="name@comapny.com" type="text"> <input id="flip3" type="submit" value="search">
+				   </div>
+				</div>
+				<p>Enter email address to verify whether it exists or not eg. <a href="#">name@company.com</a></p>
+			</div>
+		</div>
+		<div class="validates-email-listing-block" ng-show = "IsVisible">
+
+					<div class="col-md-12 col-sm-12 col-xs-12">
+					  <div class="inner-em-v-area">
+						<div class="find-email-main-wrapper">
+							<div class="sear-email-bloc">
+								<ul class="s-heading-box">
+									<li>
+										<h4>Search Result By Domain</h4>
+									</li>
+									<li>
+										<div class="find-emails-panel">
+											<form>
+												<input class="search-result-txt" name="Search Result" placeholder="Find Some One in Search Result" type="text"> <input type="submit" value="search">
+											</form>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="email-list-section mCustomScrollbar">
+								<div class="acordation-bl" ng-show = "accordianVisible">
+			                     <div class="accordation-sec"> 
+									<accordion-group ng-repeat="group in emailitems"  is-open="group.open">
+									<accordion-heading>
+									          {{group.email}}
+									<div class="pull-right">
+									<span>{{group.count}}Source</span>
+									</div>                
+									</accordion-heading>
+									<ul class="find-mail-id">
+									 <li ng-repeat="item in group.source">
+									  <a href="{{item.url}}">{{item.url}}<span>{{item.date}}</span></a>
+									</li>
+									</ul>
+									</accordion-group>    
+									</div>
+									
+							     </div>
+								   
+									<div class="not-found-email" ng-show ="errorVisible">
+										<h2>No email id found, try domain search</h2>
+									</div> 
+
+							<div class="incate-info-area">
+								<ul class="inner-indicate-txt">
+									<li>
+										<p><i class="yellow-ic"><img class="img-responsive" src="images/green-r-ico.png"></i>Dummy text here</p>
+									</li>
+									<li>
+										<p><i class="yellow-ic"><img class="img-responsive" src="images/yellow-r-ico.png"></i>Dummy text here</p>
+									</li>
+									<li>
+										<p><i class="red-ic"><img class="img-responsive" src="images/red-c-icon.png"></i> Dummy text here</p>
+									</li>
+									<li>
+										<p><i class="gray-ic"><img class="img-responsive" src="images/gray-r-ico.png"></i>Dummy text here</p>
+									</li>
+								</ul>
+							</div>
+							<div class="clear"></div>
+							</div>
+						</div><!--end inner-em-v-area-->
+
+
+					</div>
+		</div><!--end validates-email-listing-block-->
+
+		<div class="clear"></div>
+			</section>
+
+		<footer class="footer-deshboard">
+		  <div class="inner-footer-sec">
+		<p>© 2017 emailpill. All rights reserved. Terms of Use and Privacy Policy</p>
+		  </div>
+		</footer>
+	   </div>
+	</div>
+
+<script>
+var app = angular.module('myApp', ['ui.bootstrap']);
+app.controller('AccordionDemoCtrl',function($scope, $http) {
+        $scope.searchterm = "www.domain.com";
+        $scope.emailFormat = /([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/;
+      $scope.items = []
+      $scope.getItems = function() {	  
+	 
+	  var searchDomain = ($scope.searchterm);
+	  console.log(searchDomain);
+	  $scope.IsVisible = false;
+          $scope.IsVisible = $scope.IsVisible ? false : true;
+          $http({method : 'POST',
+		  url : 'http://emapi.upliftlocal.com:1337/api/v1/find-domain-emails',
+		  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		   data: $.param({domain:searchDomain})
+		  })
+		  .success(function(response) {
+		   console.log(response);
+		   var error = 0;
+          if (response.error.err_code == 0) {
+		  
+		  var headingemail = [];
+		  var emailDetail = [];
+		  for(var i=0 ; i< response.email_id_detail.length; i++){
+		  var email = [];
+	       
+           var sourceDetailCount = response.email_id_detail[i].sources_detail.length;
+           for(var j=0 ; j < sourceDetailCount ; j++){
+	         email.push({'url':response.email_id_detail[i].sources_detail[j].url,
+			 'date':response.email_id_detail[i].sources_detail[j].last_updated_on
+			 });	  
+			} 
+           headingemail.push({'email':response.email_id_detail[i].email_id,
+		   'source':email,
+           'count':email.length		   
+		   }); 			
+			}
+			$scope.emailitems = headingemail;
+			console.log(headingemail);
+		
+			$scope.items = emailDetail;
+			$scope.errorVisible = false;
+			$scope.accordianVisible = true;
+		} else {
+		$scope.accordianVisible = false;
+		$scope.errorVisible = true;
+		error = 1;
+		}	
+			
+           })
+          .error(function(data, status) {
+             $scope.accordianVisible = false;
+			$scope.errorVisible = true;
+          })
+		
+      }
+	 
+  })
+</script>
+
+ 
+
+</script>
+		<!-- Google CDN jQuery with fallback to local -->
+
+	<script>window.jQuery || document.write('<script src="../js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+
+	<!-- custom scrollbar plugin -->
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script>
+		(function($){
+			$(window).load(function(){
+
+				$("a[rel='load-content']").click(function(e){
+					e.preventDefault();
+					var url=$(this).attr("href");
+					$.get(url,function(data){
+						$(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+						//scroll-to appended content
+						$(".content").mCustomScrollbar("scrollTo","h2:last");
+					});
+				});
+
+				$(".content").delegate("a[href='top']","click",function(e){
+					e.preventDefault();
+					$(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+				});
+
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
