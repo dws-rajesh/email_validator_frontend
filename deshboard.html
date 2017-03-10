@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                     <div class="incate-info-area">
-                                        <ul class="inner-indicate-txt">
+                                        <ul class="inner-indicate-txt do-int">
                                             <li>
                                                 <p><i class="yellow-ic"><img class="img-responsive" src="images/green-r-ico.png"></i>Dummy text here</p>
                                             </li>
@@ -262,8 +262,6 @@
 
             $scope.getItems = function() {
                 var searchDomain = ($scope.searchterm);
-
-
                 // $scope.IsVisible = true;
                 $http({
                         method: 'POST',
@@ -321,11 +319,7 @@
 
 
             $scope.getEmails = function() {
-
-
                 var searchEmail = ($scope.emailsearch);
-
-
                 $scope.accordianVisible = false;
                 $scope.errorVisible = false;
                 $http({
@@ -365,8 +359,6 @@
 
 
             $scope.getProspect = function() {
-
-
                 var fullName = ($scope.fullname);
                 var domain = ($scope.domain);
                 fullName = fullName.split(" ");
@@ -416,12 +408,6 @@
 
                     })
             }
-
-
-
-
-
-
         })
         </script>
         </script>
