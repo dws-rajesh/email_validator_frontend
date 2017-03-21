@@ -26,6 +26,7 @@ html, body {
 	font-size: 100%;
 	background: #fff;
 	position: relative;
+	height: 100%;
 	font-family: 'ralewayregular';
 }
 body a {
@@ -36,6 +37,25 @@ body a {
 	-ms-transition: 0.5s all ease;
 	outline: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+@-webkit-keyframes autofill {
+    to {
+        color: #898989;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	color: #000;
@@ -75,6 +95,9 @@ a:hover, a:focus {
 a#bydomain {
     display: none;
 }
+.outer-panel.top-m-remove {
+    margin: 0px 0px;
+}
 .inner-s-panel input[type="text"]:focus {
     background: none;
     box-shadow: none;
@@ -92,7 +115,12 @@ a#bydomain {
     padding: 0px;
     border:0px;
 }
-
+.accordation-sec .pull-right.ng-scope p {
+    color: #898989;
+    font-size: 20px;
+    margin-bottom: 0px;
+    font-family: 'ralewayregular';
+}
 .accordation-sec a.accordion-toggle.ng-binding {
        background: url(../images/arrow-square.png) no-repeat right -33px;
     margin: 0;
@@ -106,7 +134,9 @@ a#bydomain {
 }
 .accordation-sec .pull-right.ng-scope span {
     margin-right: 22px;
+	font-size:18px;
 }
+
 ul.find-mail-id.ng-scope {
     float: left;
     padding: 0px;
@@ -166,9 +196,16 @@ section.search-validation-form {
 }
 .outer-panel {
 	width: 100%;
-	max-width: 866px;
-	margin: auto;
+	max-width: 100%;
+	margin: 17% 0px 0px;
+	float: left;
 	min-height: 130px;
+}
+.ne-outerbox {
+    width: 100%;
+    max-width: 867px;
+    margin: 0px auto;
+    min-height: 140px;
 }
 .inner-search-box-area {
 	float: left;
@@ -237,7 +274,7 @@ ul.dropdown-menu.drop-pannel {
 	margin: 0px 0px 0px;
 	border: none;
 	left: -3px;
-	min-width: 175px;
+	min-width: 189px;
 	border-radius: 10px;
 	overflow: hidden;
 }
@@ -281,7 +318,7 @@ ul.divide-txt-field li input[type="text"]{
 	font-style: italic;
 	outline: none;
 	width: 100%;
-	max-width: 100%;
+	max-width: 194px;
 	box-shadow: none;
 	position: relative;
 	color: #898989;
@@ -368,6 +405,7 @@ ul.footer-menu li a:hover {
 .search-panel p {
 	color: #898989;
     padding-left: 4%;
+	float: left;
     margin-top: 7px;
     font-size: 13px;
     font-family: 'ralewayregular';
@@ -388,7 +426,7 @@ ul.footer-menu li a:hover {
 
 }
 .inner-s-panel span.error {
-    font-size: 15px;
+    font-size: 13px;
     padding-left: 0px;
     padding: 0px 10px;
     position: absolute;
@@ -404,6 +442,7 @@ ul.footer-menu li a:hover {
     border-radius: 30px;
     float: left;
     width: 100%;
+    position:relative;
 }
 ::-webkit-input-placeholder {
 	/* Chrome/Opera/Safari */
@@ -924,9 +963,9 @@ p.info-mesg {
 .validates-email-listing-block {
 	width:100%;
 	margin:0px;
-	clear: both;
+	max-width: 100%;
+	float: left;
 	padding:0px;
-	display:block;
 }
 .inner-em-v-area {
     width: 100%;
@@ -986,7 +1025,7 @@ ul.s-heading-box li {
 .find-emails-panel input[type="text"] {
     border: none;
 	margin:0px;
-	max-width: 242px;
+	    max-width: calc(100% - 101px);
     font-size: 13px;
     float: left;
     color: #898989;
@@ -1126,17 +1165,22 @@ ul.find-mail-id li a span {
 .incate-info-area-v ul.inner-indicate-txt {
     padding: 0px 0px 0px 31px;
     margin: 16px 0px 0px;
-    width: 100%;
-    max-width: 100%;
 	float:none;
+}
+ul.inner-indicate-txt.do-int {
+    width: 100%;
+    overflow: hidden;
+    padding: 0px;
+    float: none;
+    margin: 20px auto;
+    max-width: 933px;
 }
 .msg-valid h3 {
     position: relative;
-    display: inline-block;
+    display: block;
     color: #898989;
     font-size: 20px;
     font-family: 'ralewayregular';
-    width: 100%;
     padding-left: 60px;
 }
 .emlist-valid h5 {
@@ -1151,7 +1195,7 @@ ul.find-mail-id li a span {
     left: 20px;
     width: 27px;
     height: 30px;
-    top: -2px;
+    top: 5px;
 }
 .emlist-valid {
     clear: both;
@@ -1160,9 +1204,9 @@ ul.find-mail-id li a span {
     margin: 0px;
 }
 ul.inner-indicate-txt {
-       width: 100%;
+       /*width: 100%;
+	   max-width: 100%;*/
        float: left;
-       max-width: 100%;
        background: #f1f1f1;
        padding-left: 20px;
        margin: 20px 10px 10px 37px;
@@ -1176,10 +1220,13 @@ ul.inner-indicate-txt li {
     position: relative;
     font-family: 'ralewayregular';
 }
+ul.inner-indicate-txt li p {
+    margin-bottom: 0px;
+}
 ul.inner-indicate-txt li p i {
     position: absolute;
     left: 12px;
-    top: 14px;
+    top: 10px;
 }
 
 ul.inner-indicate-txt li p i {
@@ -1190,8 +1237,8 @@ ul.inner-indicate-txt li p i {
 	display: block;
 	width: 100%;
 	border: 1px #ececec solid;
-	max-width: 930px;
-	margin: 15px auto 15px;
+	max-width: 990px;
+	margin: 40px auto 15px;
 	border-radius: 10px;
 	border-top: 1px #e3e3e3 solid;
 	border-left: 1px #e3e3e3 solid;
@@ -1201,7 +1248,7 @@ ul.inner-indicate-txt li p i {
 .not-found-email h2 {
     color: #cf6a6a;
     font-size: 20px;
-    padding:20px 30px;
+    padding:13px 30px;
     font-family: 'ralewayregular';
 }
 .search-result-here {
@@ -1238,8 +1285,10 @@ ul.inner-indicate-txt li p i {
 }
 
 .msg-valid {
-    float: left;
+        float: left;
     width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
     border: 1px #259c66 solid;
     background: #e6f6ec;
     border-radius: 7px;
@@ -1262,8 +1311,9 @@ ul.inner-indicate-txt li p i {
 
 .result-email-data {
     width: 100%;
-    padding: 0px 30px;
+    padding: 0px 15px;
     margin: 0px;
+    max-width: 1015px;
 }
 
 .result-email-data>table>thead>tr>th {
@@ -1288,8 +1338,9 @@ ul.inner-indicate-txt li p i {
 .main-wrapper-deshboard {
        padding: 0px 0px 0px 173px;
        margin: 0px;
+       height: 100%;
 }
-.page-wrapper {padding: 0px;position: relative;display: block;width: 100%;float: left;}
+.page-wrapper {padding: 0px;position: relative;display: block;width: 100%;height: 100%;float: left;}
 
 .sidebar {
     width: 100%;
@@ -1456,8 +1507,12 @@ ul.nav-bar-side li.active a, ul.nav-bar-side li a:hover {
 	display:block;
 }
 section.search-validation-form.deshboard-page {
-    padding: 20% 0px 17%;
+    padding: 0px 0px;
+    display: table;
+    float: left;
+    width: 100%;
     margin: 0px;
+    height: calc(100% - 43px);
 }
 .inner-footer-d {
     border-top: 1px #354962 solid;
@@ -1556,7 +1611,7 @@ span.timeing-s {
 ul.view-list-recent-search li h3 i {
     position: absolute;
     right: 50px;
-    top: 7px;
+    top: -10px;
 }
 .e-name-recent-s {
     width: 100%;
@@ -1570,7 +1625,7 @@ ul.view-list-recent-search li h3 i {
     background: #3ebd6e;
     position: absolute;
     left: -29px;
-    top: 4px;
+    top: 19px;
     border-radius: 50%;
 }
 ul.dropdown-menu.history-deatils-drop li {
@@ -1658,14 +1713,15 @@ ul.dropdown-menu.history-deatils-drop li:first-child {
 .recent-page-block {
     float: left;
     width: 100%;
-        padding: 60px 0px 11%;
+	padding:0px;
+    min-height: calc(100% - 45px);
 }
 .bulk-email-verify-page {
     display: block;
     width: 100%;
     border: 1px #ececec solid;
     max-width: 100%;
-    margin: 15px auto 15px;
+    margin: 50px auto 15px;
     border-radius: 10px;
     border-top: 1px #e3e3e3 solid;
     border-left: 1px #e3e3e3 solid;
@@ -2497,6 +2553,12 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
 }
 
 @media(max-width:991px) {
+	.ne-outerbox {
+    width: 100%;
+    max-width: 550px;
+    margin: 0px auto;
+    min-height: 140px;
+}
 	ul.view-list-recent-search li h3 i {
     right: 7px;
 	}
@@ -2504,7 +2566,8 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
 	ul.inner-indicate-txt {  max-width: 660px;}
 	.acordation-bl { max-width: 680px;}
 	.search-validation-form.deshboard-page .acordation-bl { max-width: 525px;}
-	.search-validation-form.deshboard-page ul.s-heading-box li h4{ font-size:16px;}
+	.search-validation-form.deshboard-page ul.s-heading-box li h4{     font-size: 16px;
+    padding: 20px 0px;}
 	.search-validation-form.deshboard-page .find-emails-panel {
     border: 1px #c8c8c8 solid;
     margin: 22px 0px 10px 0px;
@@ -2519,9 +2582,19 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
     font-size: 12px;
     float: left;
     width: 100%;
-    max-width: 200px;
-    padding: 9px 10px 9px 10px;
+    max-width: 173px;
+    padding: 7px 10px 7px 10px;
 	}
+	.inner-footer-sec {
+    max-width: 549px;
+}
+.inner-footer-sec p{ font-size:14px;}
+	.inner-em-v-area {
+    width: 100%;
+    height: 475px;
+    max-width: 550px;
+    margin: 15px auto 15px;
+}
 	.history-btn-s {max-width: 150px;}
 	
 	.search-validation-form.deshboard-page .find-emails-panel input[type="submit"]{ width: 61px; font-size: 12px;}
@@ -2531,9 +2604,26 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
     margin-bottom: 20px;
 	}
 	.search-validation-form.deshboard-page .search-panel {
-    max-width: 444px;
-    padding-left: 10px;
-	}
+       max-width: 407px;
+    padding-left: 11px;
+ }
+ ul.divide-txt-field li input[type="text"] {
+    max-width: 117px;
+    font-size: 12px;
+	    padding: 6px 10px;
+}
+ ul.dropdown-menu.drop-pannel {
+    min-width: 129px;
+}
+ ul.dropdown-menu.drop-pannel li a {
+    font-size: 14px;
+    line-height: 21px;
+}
+ul.divide-txt-field li:first-child:after {
+    top: 5px;
+    width: 1px;
+    height: 24px;
+}
 	.search-result-here {
     margin: 15px auto 15px;
     padding: 10px;
@@ -2587,8 +2677,10 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
 		padding-left: 12px;
 	}
 	.search-panel input[type="text"] {
-		font-size: 15px;
-		padding: 6px 178px 6px 17px;
+	font-size: 15px;
+    width: 56%;
+    max-width: 163px;
+    padding: 6px 86px 6px 17px;
 	}
 	.search-panel input[type="submit"] {
 		width: 125px;
@@ -2688,6 +2780,31 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
 	}
 }
 @media(max-width: 767px) {
+	.search-validation-form.deshboard-page ul.s-heading-box li h4 {
+    font-size: 16px;
+    padding: 2px 0px;
+}
+	section.search-validation-form.deshboard-page {
+    padding: 0px;
+    margin: 0px;
+}
+.togbtn a:hover, .togbtn a:focus {
+    color: #fff;
+}
+.inner-s-panel span.error {
+    font-size: 13px;
+    left: 2px;
+}
+.search-validation-form.deshboard-page .search-panel {
+    max-width: 100%;
+    padding-left: 0px;
+    margin-top: 11px;
+}
+	.domain-t-field.mobl-for {
+    border: none;
+    box-shadow: none;
+    min-height: 125px;
+}
 	.bulk-email-verify-page {
     margin: 30px auto 15px;
 }
@@ -2704,14 +2821,14 @@ span.timeing-s { padding: 8px 0px 0px; font-size: 12px;}
 }
 	.search-validation-form.deshboard-page .find-emails-panel {
     border: none;
-    margin: 20px auto;
+    margin: 5px auto;
     max-width: 290px;
     float: none;
 }
 .search-validation-form.deshboard-page .find-emails-panel input[type="submit"] {
-    width: 70px;
-    font-size: 12px;
-    margin: 13px 0px;
+       width: 120px;
+    font-size: 14px;
+    margin: 5px 0px;
 }
 	.result-email-data {
     width: 100%;
@@ -2834,7 +2951,7 @@ ul.rc-heading-box li h4 {
     margin: 0px;
 	position:relative;
 	}
-.sidebar { left: -149px;}
+.sidebar { left: -174px;}
 .openside{left:0px;}
 .togbtn {
     display: block;
@@ -2897,7 +3014,7 @@ ul.rc-heading-box li h4 {
 	.inner-s-panel {
     width: 100%;
     float: none;
-    max-width: 96%;
+    max-width: 100%;
     margin: 0px auto;
 }
 ul.divide-txt-field {
@@ -2906,9 +3023,54 @@ ul.divide-txt-field {
 	ul.dropdown-menu.drop-pannel {
     padding: 0px 6px;
     left: 0px;
-    min-width: 100%;
+    min-width: 98%;
 }
-	.inner-em-v-area{ height:inherit;}
+	.inner-em-v-area{height: 450px;
+    float: left;
+    padding: 20px 0px;}
+	ul.s-heading-box {
+    margin: 0px;
+    float: left;
+    width: 100%;
+}
+.find-email-main-wrapper ul.s-heading-box>li>h4 {
+    padding: 0px;
+    margin: 10px 0px;
+}
+.find-emails-panel form {
+    margin: 0px;
+}
+.search-validation-form.deshboard-page .find-emails-panel input[type="text"] {
+        font-size: 12px;
+    float: none;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 250px;
+    padding: 6px 10px 6px 10px;
+}
+.accordation-sec {
+    width: 95%;
+}
+.accordation-sec a.accordion-toggle.ng-binding {
+    background: url(../images/arrow-square.png) no-repeat right -42px;
+    padding: 15px 15px;
+    font-size: 13px;
+}
+.accordation-sec .pull-right.ng-scope p{ font-size:12px;}
+.accordation-sec .pull-right.ng-scope span {
+        margin-right: 17px;
+    font-size: 11px;
+}
+.incate-info-area {
+    float: left;
+    width: 100%;
+    max-width: 290px;
+}
+ul.inner-indicate-txt.do-int {
+    width: 100%;
+    margin: 10px auto;
+    max-width: 290px;
+}
 	ul.s-heading-box li{ width:100%;}
 	ul.s-heading-box li h4 {
     padding: 20px 20px 20px 29px;
@@ -2969,8 +3131,9 @@ ul.inner-indicate-txt {
     float: none;
 }
 ul.inner-indicate-txt li {
-    padding: 12px 39px;
+        padding: 12px 36px;
     width: 100%;
+    max-width: 210px;
     border-bottom: 1px #c3c3c3 solid;
     font-size: 13px;
 }
@@ -3028,7 +3191,8 @@ ul.dropdown-menu.drop-pannel li a {
 	}
 .search-panel input[type="text"] {
     font-size: 13px;
-    padding: 6px 105px 6px 17px;
+    width: initial;
+    padding: 6px 32px 6px 17px;
 }
 .search-panel input[type="submit"] {
     width: 95px;
@@ -3052,6 +3216,7 @@ ul.dropdown-menu.drop-pannel li a {
 	ul.divide-txt-field li input[type="text"] {
     font-size: 13px;
     padding: 6px 17px 6px 17px;
+	max-width: 100%;
 }
 	div#prospect-search-field input[type="submit"] {
     bottom: 0px;
@@ -3084,7 +3249,8 @@ ul.dropdown-menu.drop-pannel li a {
 	}
 	.outer-panel {
 		width: 100%;
-		max-width: 290px;
+		max-width: 100%;
+		margin: 45% 0px 0px;
 	}
 	.inner-search-box-area {
 		max-width: 100%;
@@ -3134,6 +3300,7 @@ ul.dropdown-menu.drop-pannel li a {
 		line-height: 19px;
 		margin: 15px 0px;
 	}
+	.inner-footer-sec p{ font-size:12px;}
 	ul.footer-menu li a {
 		font-size: 16px;
 		text-align: center;
@@ -3224,7 +3391,7 @@ ul.dropdown-menu.drop-pannel li a {
 		font-size: 16px;
 		top: 30px;
 	}
-	.outer-panel h1{ font-size:20px;}
+	.outer-panel h1{ font-size:20px;    line-height: 29px;}
 	.first-row input.login-btn {
     line-height: 28px;
     font-size: 14px;

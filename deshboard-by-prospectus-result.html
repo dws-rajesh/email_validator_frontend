@@ -7,25 +7,35 @@
 <!--[if lt IE 11]> <html lang="en" class="ie"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en-gb">
+
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta content="Email Validator" name="keywords">
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<title>Email Deshboard</title>
-	<!-- Meta -->
-	<meta content="Default Description" name="description">
-	<meta content="email" name="author">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	 <script src="js/script.js"></script>
-		 
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="Email Validator" name="keywords">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Email Deshboard</title>
+    <!-- Meta -->
+    <meta content="Default Description" name="description">
+    <meta content="email" name="author">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+    <!-- custom scrollbar stylesheet -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
-<body>
+<body ng-controller="AccordionDemoCtrl" ng-app="myApp">
 <div class="sidebar">
 	     <div class="user-panel">
 		    <div class="user-pic"><img src="images/user-pic.png" class="img-responsive"></div>
@@ -56,45 +66,73 @@
 	   <div class="page-wrapper">
 	    	<section class="search-validation-form  deshboard-page">
 		<div class="outer-panel">
-			<h1>Let’s End Your Search Here!</h1>
-			<div class="inner-search-box-area">
-				<div class="dropdown">
-					<button class="dropdown-toggle domain-btn" data-toggle="dropdown" id="name-btn" type="button">By Domain</button>
-					<ul class="dropdown-menu drop-pannel">
-						<li id="bydomain">
-							<a href="javascript:void(0)"  class="bydom">By Domain</a>
-						</li>
-						<li  id="bypropect">
-							<a href="javascript:void(0)">By Prospect</a>
-						</li>
-						<li id="verifyemail">
-							<a href="javascript:void(0)">Verify Email</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="search-panel" id="comanyname-search-field">
-				<div class="inner-s-panel">
-					<input class="com-name-txt" name="company name" placeholder="Comapny.com" required="" type="text"> <input id="flip" type="submit" value="search">
-				</div>
-				<p>Enter domain to find email addresses. For example, try <a href="#">domain.com</a> or <a href="#">name@company.com</a></p>
-			</div>
-			<div class="search-panel" id="prospect-search-field">
-				<div class="inner-s-panel">
-					<ul class="divide-txt-field">
-						<li><input class="fullname-txt" name="full name" placeholder="Full Name" type="text"></li>
-						<li><input class="domain-txt" name="domain" placeholder="Domain" type="text"></li>
-					</ul><input id="flip2" type="submit" value="search">
-				</div>
-				<p>Enter full name and Domain name to find professional email addresses. eg <a href="#">Steve Jobs</a> & <a href="#">apple.com</a></p>
-			</div>
-			<div class="search-panel" id="verifyemail-search-field">
-				<div class="inner-s-panel">
-					<input class="verify-email-txt" name="verify email" placeholder="name@comapny.com" type="text"> <input id="flip3" type="submit" value="search">
-				</div>
-				<p>Enter email address to verify whether it exists or not eg. <a href="#">name@company.com</a></p>
-			</div>
-		</div>
+				<div class="ne-outerbox">
+                    <h1>Let’s End Your Search Here!</h1>
+                    <div class="inner-search-box-area">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle domain-btn" data-toggle="dropdown" id="name-btn" type="button">By Domain</button>
+                            <ul class="dropdown-menu drop-pannel">
+                                <li id="bydomain">
+                                    <a href="javascript:void(0)" class="bydom">By Domain</a>
+                                </li>
+                                <li id="bypropect">
+                                    <a href="javascript:void(0)">By Prospect</a>
+                                </li>
+                                <li id="verifyemail">
+                                    <a href="javascript:void(0)">Verify Email</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="search-panel" id="comanyname-search-field">
+                        <div class="inner-s-panel">
+                            <form name="myForm">
+                                <div class="domain-t-field">
+                                    <input class="com-name-txt" ng-model="searchterm" name="searchterm" ng-pattern="domainFormat" required="" type="text">
+                                    <input type="submit" value="search" ng-click="getItems()">
+                                </div>
+                                <span class="error" ng-show="myForm.searchterm.$error.required"> Required Domain Name</span>
+                                <span class="error" ng-show="myForm.searchterm.$error.pattern">Please Enter valid Domain</span>
+                            </form>
+                        </div>
+                        <p>Enter domain to find email addresses. For example, try <a href="#">domain.com</a> or <a href="#">name@company.com</a></p>
+                    </div>
+                    <div class="search-panel" id="prospect-search-field">
+                        <div class="inner-s-panel">
+                            <form name="prospectForm">
+                                <div class="domain-t-field mobl-for">
+                                    <ul class="divide-txt-field">
+                                        <li>
+                                            <input class="fullname-txt" ng-model="fullname" required="" type="text" name="fullname">
+                                            <span class="error" ng-show="prospectForm.fullname.$error.required"> Required Full Name </span>
+                                        </li>
+                                        <li>
+                                            <input class="domain-txt" ng-model="domain" required="" type="text" name="domain" ng-pattern="domainFormat">
+                                            <span class="error" ng-show="prospectForm.domain.$error.required"> Required Email </span>
+                                            <span class="error" ng-show="prospectForm.domain.$error.pattern">Please Enter Valid domain</span>
+                                        </li>
+                                    </ul>
+                                    <input type="submit" ng-click="getProspect()" value="search">
+                                </div>
+                            </form>
+                        </div>
+                        <p>Enter full name and Domain name to find professional email addresses. eg <a href="#">Steve Jobs</a> & <a href="#">apple.com</a></p>
+                    </div>
+                    <div class="search-panel" id="verifyemail-search-field">
+                        <div class="inner-s-panel">
+                            <form name="emailForm">
+                                <div class="domain-t-field">
+                                    <input class="verify-email-txt" ng-model="emailsearch" required="" ng-pattern="emailFormat" type="text" name="emailsearch">
+                                    <span class="error" ng-show="emailForm.emailsearch.$error.required"> Required Email </span>
+                                    <span class="error" ng-show="emailForm.emailsearch.$error.pattern">Please Enter Valid Email</span>
+                                    <input type="submit" ng-click="getEmails()" value="search">
+                                </div>
+                            </form>
+                        </div>
+                        <p>Enter email address to verify whether it exists or not eg. <a href="#">name@company.com</a></p>
+                    </div>
+					</div>
+                </div>
 		<div class="validates-email-listing-block">
 		
 					<div class="col-md-12 col-sm-12 col-xs-12">
@@ -219,6 +257,163 @@
 		</footer>	
 	   </div>
 	</div>
+	   <script>
+        var app = angular.module('myApp', ['ui.bootstrap']);
+        app.controller('AccordionDemoCtrl', function($scope, $http) {
+            $scope.searchterm = "www.domain.com";
+            $scope.domainFormat = /([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/;
+            $scope.emailsearch = "name@company.com";
+            $scope.emailFormat = /\S+@\S+\.\S+/;
+            $scope.domain = "www.domain.com";
+            $scope.fullname = "Full Name";
+            $scope.items = []
+
+            $scope.getItems = function() {
+                var searchDomain = ($scope.searchterm);
+                // $scope.IsVisible = true;
+                $http({
+                        method: 'POST',
+                        url: 'http://emapi.upliftlocal.com:1337/api/v1/find-domain-emails',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: $.param({
+                            domain: searchDomain
+                        })
+                    })
+                    .success(function(response) {
+
+                        var error = 0;
+                        if (response.error.err_code == 0) {
+
+                            var headingemail = [];
+                            var emailDetail = [];
+                            for (var i = 0; i < response.email_id_detail.length; i++) {
+                                var email = [];
+
+                                var sourceDetailCount = response.email_id_detail[i].sources_detail.length;
+                                for (var j = 0; j < sourceDetailCount; j++) {
+                                    email.push({
+                                        'url': response.email_id_detail[i].sources_detail[j].url,
+                                        'date': response.email_id_detail[i].sources_detail[j].last_updated_on
+                                    });
+                                }
+                                headingemail.push({
+                                    'email': response.email_id_detail[i].email_id,
+                                    'source': email,
+                                    'count': email.length
+                                });
+                            }
+                            $scope.emailitems = headingemail;
+                            console.log('success');
+
+                            $scope.items = emailDetail;
+                            $scope.errorVisible = false;
+                            $scope.accordianVisible = true;
+                        } else {
+                            $scope.accordianVisible = false;
+                            $scope.errorVisible = true;
+                            error = 1;
+                        }
+
+                    })
+                    .error(function(data, status) {
+                        console.log('error' + data + status);
+                        $scope.accordianVisible = false;
+                        $scope.errorVisible = true;
+                    })
+
+            }
+
+
+            $scope.getEmails = function() {
+                var searchEmail = ($scope.emailsearch);
+                $scope.accordianVisible = false;
+                $scope.errorVisible = false;
+                $http({
+                        method: 'POST',
+                        url: 'http://emapi.upliftlocal.com:1337/api/v1/validate-email',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: $.param({
+                            email_id: searchEmail
+                        })
+                    })
+                    .success(function(response) {
+
+                        var error = 0;
+                        if (response.error.err_code == 0) {
+                            $scope.validEmail = response.result.email_id;
+                            $scope.validEmailMessage = 'Valid email address';
+
+                        } else {
+                            $scope.validEmail = searchEmail;
+                            $scope.validEmailMessage = 'invalid email address';
+                            error = 1;
+                        }
+                        $scope.emailVisible = true;
+                        console.log('success');
+
+                    })
+                    .error(function(data, status) {
+                        console.log('error');
+                        $scope.validEmail = searchEmail;
+                        $scope.validEmailMessage = 'invalid email address';
+                        $scope.emailVisible = true;
+
+                    })
+            }
+            $scope.getProspect = function() {
+                var fullName = ($scope.fullname);
+                var domain = ($scope.domain);
+                fullName = fullName.split(" ");
+                var firstName = fullName[0];
+                var lastName = fullName[1];
+                $scope.accordianVisible = false;
+                $scope.errorVisible = false;
+                $scope.emailVisible = false;
+                $http({
+                        method: 'POST',
+                        url: 'http://emapi.upliftlocal.com:1337/api/v1/name-search',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: $.param({
+                            first_name: firstName,
+                            last_name: lastName,
+                            domain: domain
+                        })
+                    })
+                    .success(function(response) {
+
+                        var error = 0;
+                        if (response.error.err_code == 0) {
+                            $scope.firstName = response.result.first_name;
+                            $scope.lastName = response.result.last_name;
+                            $scope.emailId = response.result.email_id;
+
+                        } else {
+                            $scope.firstName = firstName;
+                            $scope.lastName = lastName;
+                            $scope.emailId = 'not-found-email';
+                            error = 1;
+                        }
+                        $scope.prospectVisible = true;
+                        console.log('success');
+
+                    })
+                    .error(function(data, status) {
+                        console.log('error');
+                        $scope.firstName = firstName;
+                        $scope.lastName = lastName;
+                        $scope.emailId = 'not-found-email';
+                        $scope.prospectVisible = true;
+
+                    })
+            }
+        })
+        </script>
 	
 </body>
 </html>
