@@ -251,7 +251,29 @@
         </div>
         <script>
         var app = angular.module('myApp', ['ui.bootstrap']);
-        app.controller('AccordionDemoCtrl', function($scope, $http) {
+        app.factory('domainInit', function () {
+            return {
+        initDomainSearch: function (data) {
+             console.log('init');  
+             console.log(data) ; 
+              $http({
+                        method: 'POST',
+                        url: 'http://emapi.upliftlocal.com:1337/api/v1/domain-search',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: $.param({
+                            domain: data
+                        })
+                    })
+                    .success(function(response) {  
+                    })
+                    .error(function(data, status) { 
+                    })            
+        }
+    }
+});
+        app.controller('AccordionDemoCtrl', function($scope, $http, domainInit) {
             $scope.searchterm = "www.domain.com";
             $scope.domainFormat = /([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/;
             $scope.emailsearch = "name@company.com";
@@ -259,10 +281,9 @@
             $scope.domain = "www.domain.com";
             $scope.fullname = "Full Name";
             $scope.items = []
-
             $scope.getItems = function() {
                 var searchDomain = ($scope.searchterm);
-
+                 
 
                 // $scope.IsVisible = true;
                 $http({
@@ -304,7 +325,9 @@
                             $scope.items = emailDetail;
                             $scope.errorVisible = false;
                             $scope.accordianVisible = true;
-                        } else {
+                        } else if(response.error.err_code == 404){
+                             domainInit.initDomainSearch(searchDomain);
+                    } else {
                             $scope.accordianVisible = false;
                             $scope.errorVisible = true;
                             error = 1;
