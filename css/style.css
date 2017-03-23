@@ -109,7 +109,13 @@ a#bydomain {
     padding: 0px;
     margin: 0px;
 }
-
+.accordation-sec .panel {
+    margin: 0px;
+    border: none;
+}
+.accordation-sec .panel-heading {
+    padding: 0px;
+}
 .accordation-sec .accordion-group.ng-scope {
     margin: 0px;
     padding: 0px;
@@ -122,15 +128,15 @@ a#bydomain {
     font-family: 'ralewayregular';
 }
 .accordation-sec a.accordion-toggle.ng-binding {
-       background: url(../images/arrow-square.png) no-repeat right -33px;
+    background: url(../images/arrow-square.png) no-repeat right -33px;
     margin: 0;
     padding: 22px 15px;
-    border-bottom: 1px #c3c3c3 solid;
     color: #898989;
     font-size: 18px;
     font-family: 'ralewayregular';
     cursor: pointer;
     position: relative;
+	display:block;
 }
 .accordation-sec .pull-right.ng-scope span {
     margin-right: 22px;
