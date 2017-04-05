@@ -18,7 +18,7 @@
     <!-- Meta -->
     <meta content="Default Description" name="description">
     <meta content="email" name="author">
-			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <!-- custom scrollbar stylesheet -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script> -->
     <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
@@ -65,72 +65,72 @@
         <div class="page-wrapper">
             <section class="search-validation-form  deshboard-page">
                 <div class="outer-panel">
-				<div class="ne-outerbox">
-                    <h1>Let’s End Your Search Here!</h1>
-                    <div class="inner-search-box-area">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle domain-btn" data-toggle="dropdown" id="name-btn" type="button">By Domain</button>
-                            <ul class="dropdown-menu drop-pannel">
-                                <li id="bydomain">
-                                    <a href="javascript:void(0)" class="bydom">By Domain</a>
-                                </li>
-                                <li id="bypropect">
-                                    <a href="javascript:void(0)">By Prospect</a>
-                                </li>
-                                <li id="verifyemail">
-                                    <a href="javascript:void(0)">Verify Email</a>
-                                </li>
-                            </ul>
+                    <div class="ne-outerbox">
+                        <h1>Let’s End Your Search Here!</h1>
+                        <div class="inner-search-box-area">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle domain-btn" data-toggle="dropdown" id="name-btn" type="button">By Domain</button>
+                                <ul class="dropdown-menu drop-pannel">
+                                    <li id="bydomain">
+                                        <a href="javascript:void(0)" class="bydom">By Domain</a>
+                                    </li>
+                                    <li id="bypropect">
+                                        <a href="javascript:void(0)">By Prospect</a>
+                                    </li>
+                                    <li id="verifyemail">
+                                        <a href="javascript:void(0)">Verify Email</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search-panel" id="comanyname-search-field">
+                            <div class="inner-s-panel">
+                                <form name="myForm">
+                                    <div class="domain-t-field">
+                                        <input class="com-name-txt" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'www.domain.com';}" ng-model="searchterm" name="searchterm" ng-pattern="domainFormat" required="" type="text">
+                                        <input type="submit" value="search" ng-click="getItems()">
+                                    </div>
+                                    <span class="error" ng-show="myForm.searchterm.$error.required"> Required Domain Name</span>
+                                    <span class="error" ng-show="myForm.searchterm.$error.pattern">Please Enter valid Domain</span>
+                                </form>
+                            </div>
+                            <p>Enter domain to find email addresses. For example, try <a href="#">domain.com</a> or <a href="#">name@company.com</a></p>
+                        </div>
+                        <div class="search-panel" id="prospect-search-field">
+                            <div class="inner-s-panel">
+                                <form name="prospectForm">
+                                    <div class="domain-t-field mobl-for">
+                                        <ul class="divide-txt-field">
+                                            <li>
+                                                <input class="fullname-txt" ng-model="fullname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Full Name';}" required="" type="text" name="fullname">
+                                                <span class="error" ng-show="prospectForm.fullname.$error.required"> Required Full Name </span>
+                                            </li>
+                                            <li>
+                                                <input class="domain-txt" ng-model="domain" required="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'www.domain.com';}" type="text" name="domain" ng-pattern="domainFormat">
+                                                <span class="error" ng-show="prospectForm.domain.$error.required"> Required Email </span>
+                                                <span class="error" ng-show="prospectForm.domain.$error.pattern">Please Enter Valid domain</span>
+                                            </li>
+                                        </ul>
+                                        <input type="submit" ng-click="getProspect()" value="search">
+                                    </div>
+                                </form>
+                            </div>
+                            <p>Enter full name and Domain name to find professional email addresses. eg <a href="#">Steve Jobs</a> & <a href="#">apple.com</a></p>
+                        </div>
+                        <div class="search-panel" id="verifyemail-search-field">
+                            <div class="inner-s-panel">
+                                <form name="emailForm">
+                                    <div class="domain-t-field">
+                                        <input class="verify-email-txt" ng-model="emailsearch" required="" ng-pattern="emailFormat" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name@company.com';}" type="text" name="emailsearch">
+                                        <span class="error" ng-show="emailForm.emailsearch.$error.required"> Required Email </span>
+                                        <span class="error" ng-show="emailForm.emailsearch.$error.pattern">Please Enter Valid Email</span>
+                                        <input type="submit" ng-click="getEmails()" value="search">
+                                    </div>
+                                </form>
+                            </div>
+                            <p>Enter email address to verify whether it exists or not eg. <a href="#">name@company.com</a></p>
                         </div>
                     </div>
-                    <div class="search-panel" id="comanyname-search-field">
-                        <div class="inner-s-panel">
-                            <form name="myForm">
-                                <div class="domain-t-field">
-                                    <input class="com-name-txt" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'www.domain.com';}" ng-model="searchterm" name="searchterm" ng-pattern="domainFormat" required="" type="text">
-                                    <input type="submit" value="search" ng-click="getItems()">
-                                </div>
-                                <span class="error" ng-show="myForm.searchterm.$error.required"> Required Domain Name</span>
-                                <span class="error" ng-show="myForm.searchterm.$error.pattern">Please Enter valid Domain</span>
-                            </form>
-                        </div>
-                        <p>Enter domain to find email addresses. For example, try <a href="#">domain.com</a> or <a href="#">name@company.com</a></p>
-                    </div>
-                    <div class="search-panel" id="prospect-search-field">
-                        <div class="inner-s-panel">
-                            <form name="prospectForm">
-                                <div class="domain-t-field mobl-for">
-                                    <ul class="divide-txt-field">
-                                        <li>
-                                            <input class="fullname-txt" ng-model="fullname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Full Name';}" required="" type="text" name="fullname">
-                                            <span class="error" ng-show="prospectForm.fullname.$error.required"> Required Full Name </span>
-                                        </li>
-                                        <li>
-                                            <input class="domain-txt" ng-model="domain" required="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'www.domain.com';}" type="text" name="domain" ng-pattern="domainFormat">
-                                            <span class="error" ng-show="prospectForm.domain.$error.required"> Required Email </span>
-                                            <span class="error" ng-show="prospectForm.domain.$error.pattern">Please Enter Valid domain</span>
-                                        </li>
-                                    </ul>
-                                    <input type="submit" ng-click="getProspect()" value="search">
-                                </div>
-                            </form>
-                        </div>
-                        <p>Enter full name and Domain name to find professional email addresses. eg <a href="#">Steve Jobs</a> & <a href="#">apple.com</a></p>
-                    </div>
-                    <div class="search-panel" id="verifyemail-search-field">
-                        <div class="inner-s-panel">
-                            <form name="emailForm">
-                                <div class="domain-t-field">
-                                    <input class="verify-email-txt" ng-model="emailsearch" required="" ng-pattern="emailFormat" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name@company.com';}" type="text" name="emailsearch">
-                                    <span class="error" ng-show="emailForm.emailsearch.$error.required"> Required Email </span>
-                                    <span class="error" ng-show="emailForm.emailsearch.$error.pattern">Please Enter Valid Email</span>
-                                    <input type="submit" ng-click="getEmails()" value="search">
-                                </div>
-                            </form>
-                        </div>
-                        <p>Enter email address to verify whether it exists or not eg. <a href="#">name@company.com</a></p>
-                    </div>
-					</div>
                 </div>
                 <div class="validates-email-listing-block">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -158,7 +158,7 @@
                                                 <accordion-heading>
                                                     {{group.email}}
                                                     <div class="pull-right">
-                                                       <p>{{group.count}} <span>Source</span></p>
+                                                        <p>{{group.count}} <span>Source</span></p>
                                                     </div>
                                                 </accordion-heading>
                                                 <ul class="find-mail-id">
@@ -254,183 +254,543 @@
         </div>
         <script>
         var app = angular.module('myApp', ['ui.bootstrap']);
-        app.factory('domainInit', function () {
+        app.factory('domainInit', function() {
             return {
-        initDomainSearch: function (data) {
-             console.log('init');  
-             console.log(data) ; 
-              $http({
-                        method: 'POST',
-                        url: 'http://emapi.upliftlocal.com:1337/api/v1/domain-search',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        data: $.param({
-                            domain: data
+                initDomainSearch: function(domain, accessToken, $scope, $interval, $http) {
+
+
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/v1/domain-search?access_token=' + accessToken,
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                domain: domain
+                            })
                         })
-                    })
-                    .success(function(response) {  
-                    })
-                    .error(function(data, status) { 
-                    })            
-        }
-    }
-});
-        app.controller('AccordionDemoCtrl', function($scope, $http, domainInit) {
-            $scope.searchterm = "www.domain.com";
-            $scope.domainFormat = /([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/;
-            $scope.emailsearch = "name@company.com";
-            $scope.emailFormat = /\S+@\S+\.\S+/;
-            $scope.domain = "www.domain.com";
-            $scope.fullname = "Full Name";
-            $scope.items = []
-            $scope.getItems = function() {
-                var searchDomain = ($scope.searchterm);
-                // $scope.IsVisible = true;
-                $http({
-                        method: 'POST',
-                        url: 'http://emapi.upliftlocal.com:1337/api/v1/find-domain-emails',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        data: $.param({
-                            domain: searchDomain
-                        })
-                    })
-                    .success(function(response) {
+                        .success(function(response) {
+                            if (response.result.err_code == 0) {
+                                var promise = $interval(function() {
+                                    var searchDomain = ($scope.searchterm);
+                                    console.log('interval code');
+                                    $http({
+                                            method: 'POST',
+                                            url: 'http://emapi.upliftlocal.com:1337/api/v1/domain-search-progress?access_token=' + accessToken,
+                                            headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            },
+                                            data: $.param({
+                                                domain: searchDomain
+                                            })
+                                        })
+                                        .success(function(response) {
 
-                        var error = 0;
-                        if (response.error.err_code == 0) {
+                                            if (response.result.err_code == 0 && response.result.progress == 100) {
+                                                console.log('ooo');
+                                                callDomainSearch(searchDomain, $scope, accessToken, $http);
+                                                $interval.cancel(promise);
 
-                            var headingemail = [];
-                            var emailDetail = [];
-                            for (var i = 0; i < response.email_id_detail.length; i++) {
-                                var email = [];
+                                            } else if (response.result.err_code == 404) {
+                                                console.log('404');
+                                                $scope.accordianVisible = false;
+                                                $scope.errorVisible = true;
+                                            } else {
+                                                console.log('else');
+                                                $scope.accordianVisible = false;
+                                                $scope.errorVisible = true;
 
-                                var sourceDetailCount = response.email_id_detail[i].sources_detail.length;
-                                for (var j = 0; j < sourceDetailCount; j++) {
-                                    email.push({
-                                        'url': response.email_id_detail[i].sources_detail[j].url,
-                                        'date': response.email_id_detail[i].sources_detail[j].last_updated_on
-                                    });
-                                }
-                                headingemail.push({
-                                    'email': response.email_id_detail[i].email_id,
-                                    'source': email,
-                                    'count': email.length
-                                });
+                                            }
+
+                                        })
+                                        .error(function(data, status) {
+                                            console.log('errorcdsfws' + data + status);
+                                            $scope.accordianVisible = false;
+                                            $scope.errorVisible = true;
+                                        })
+                                }, 5000);
+                            } else {
+                                console.log('fgdheytsk');
+                                $scope.errorVisible = true;
                             }
-                            $scope.emailitems = headingemail;
-                            console.log('success');
-
-                            $scope.items = emailDetail;
-                            $scope.errorVisible = false;
-                            $scope.accordianVisible = true;
-                        } else if(response.error.err_code == 404){
-                             domainInit.initDomainSearch(searchDomain);
-                    } else {
-                            $scope.accordianVisible = false;
-                            $scope.errorVisible = true;
-                            error = 1;
-                        }
-
-                    })
-                    .error(function(data, status) {
-                        console.log('error' + data + status);
-                        $scope.accordianVisible = false;
-                        $scope.errorVisible = true;
-                    })
-
-            }
-
-
-            $scope.getEmails = function() {
-                var searchEmail = ($scope.emailsearch);
-                $scope.accordianVisible = false;
-                $scope.errorVisible = false;
-                $http({
-                        method: 'POST',
-                        url: 'http://emapi.upliftlocal.com:1337/api/v1/validate-email',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        data: $.param({
-                            email_id: searchEmail
                         })
-                    })
-                    .success(function(response) {
+                        .error(function(data, status) {
+                            $scope.errorVisible = true;
+                        })
+                },
+                initEmailSearch: function(searchEmail, accessToken, $scope, $interval, $http) {
+                    console.log('start');
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/v1/verify-email?access_token=' + accessToken,
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                email_id: searchEmail
+                            })
+                        })
+                        .success(function(response) {
 
-                        var error = 0;
-                        if (response.error.err_code == 0) {
-                            $scope.validEmail = response.result.email_id;
-                            $scope.validEmailMessage = 'Valid email address';
-
-                        } else {
+                            if (response.result.err_code == 0) {
+                                var promise = $interval(function() {
+                                    console.log('internal code');
+                                    var searchEmail = ($scope.emailsearch);
+                                    $http({
+                                            method: 'POST',
+                                            url: 'http://emapi.upliftlocal.com:1337/api/v1/validate-email?access_token=' + accessToken,
+                                            headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            },
+                                            data: $.param({
+                                                email_id: searchEmail
+                                            })
+                                        })
+                                        .success(function(response) {
+                                            console.log(response)
+                                            var error = 0;
+                                            if (response.error.err_code == 0) {
+                                                $scope.validEmail = response.result.email_id;
+                                                $scope.validEmailMessage = 'Valid email address';
+                                                $interval.cancel(promise);
+                                            } else if (response.error.err_code == 404) {
+                                                console.log('404');
+                                            } else {
+                                                $scope.validEmail = searchEmail;
+                                                $scope.validEmailMessage = 'invalid email address';
+                                                error = 1;
+                                            }
+                                            $scope.emailVisible = true;
+                                        })
+                                        .error(function(data, status, error) {
+                                            $scope.validEmail = searchEmail;
+                                            $scope.validEmailMessage = 'invalid email address';
+                                            $scope.emailVisible = true;
+                                        })
+                                }, 5000);
+                            } else {
+                                $scope.validEmail = searchEmail;
+                                $scope.validEmailMessage = 'invalid email address';
+                                $scope.emailVisible = true;
+                            }
+                        }).error(function(data, status) {
                             $scope.validEmail = searchEmail;
                             $scope.validEmailMessage = 'invalid email address';
-                            error = 1;
-                        }
-                        $scope.emailVisible = true;
-                        console.log('success');
-
-                    })
-                    .error(function(data, status) {
-                        console.log('error');
-                        $scope.validEmail = searchEmail;
-                        $scope.validEmailMessage = 'invalid email address';
-                        $scope.emailVisible = true;
-
-                    })
-            }
-            $scope.getProspect = function() {
-                var fullName = ($scope.fullname);
-                var domain = ($scope.domain);
-                fullName = fullName.split(" ");
-                var firstName = fullName[0];
-                var lastName = fullName[1];
-                $scope.accordianVisible = false;
-                $scope.errorVisible = false;
-                $scope.emailVisible = false;
-                $http({
-                        method: 'POST',
-                        url: 'http://emapi.upliftlocal.com:1337/api/v1/name-search',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        data: $.param({
-                            first_name: firstName,
-                            last_name: lastName,
-                            domain: domain
+                            $scope.emailVisible = true;
                         })
-                    })
-                    .success(function(response) {
 
-                        var error = 0;
-                        if (response.error.err_code == 0) {
-                            $scope.firstName = response.result.first_name;
-                            $scope.lastName = response.result.last_name;
-                            $scope.emailId = response.result.email_id;
+                },
+                initProspectSearch: function(name, domain, accessToken, $scope, $interval, $http) {
+                    console.log('startxxx');
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/v1/find-email/name?access_token=' + accessToken,
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                name: name,
+                                domain: domain
+                            })
+                        })
+                        .success(function(response) {
+                            if (response.result.err_code == 0) {
+                                var fullNameSplit = name.split(" ");
+                                var firstName = fullNameSplit[0];
+                                var lastName = fullNameSplit[1];
+                                var promise = $interval(function() {
+                                    console.log('interval start');
+                                    var id = response.result.id;
+                                    $http({
+                                            method: 'POST',
+                                            url: 'http://emapi.upliftlocal.com:1337/api/v1/name-search-progress?access_token=' + accessToken,
+                                            headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            },
+                                            data: $.param({
+                                                id: id
+                                            })
+                                        })
+                                        .success(function(response) {
+                                            if (response.result.err_code == 0 && response.result.progress == 100) {
+                                            	console.log('0000');
+                                                callProspectSearch(name, domain, accessToken, $scope, $http)
+                                                $interval.cancel(promise);
+                                            } else if (response.result.err_code == 404) {
+                                                console.log('404');
+                                            } else {
+                                                console.log('error');
+                                                $scope.firstName = firstName;
+                                                $scope.lastName = lastName;
+                                                $scope.emailId = 'not-found-email';
+                                                //$scope.prospectVisible = true;
+                                            }
+                                        })
+                                        .error(function(data, status) {
+                                            console.log('errorrr');
+                                            $scope.firstName = firstName;
+                                            $scope.lastName = lastName;
+                                            $scope.emailId = 'not-found-email';
+                                            $scope.prospectVisible = true;
 
-                        } else {
+                                        })
+                                }, 5000);
+                            } else {
+
+                                $scope.firstName = firstName;
+                                $scope.lastName = lastName;
+                                $scope.emailId = 'not-found-email';
+                                $scope.prospectVisible = true;
+                            }
+                        })
+                        .error(function(data, status) {
+                            var fullNameSplit = name.split(" ");
+                            var firstName = fullNameSplit[0];
+                            var lastName = fullNameSplit[1];
                             $scope.firstName = firstName;
                             $scope.lastName = lastName;
                             $scope.emailId = 'not-found-email';
-                            error = 1;
-                        }
-                        $scope.prospectVisible = true;
-                        console.log('success');
+                            $scope.prospectVisible = true;
+                        })
+                }
+            }
+        });
 
+        function callDomainSearch(searchDomain, $scope, accessToken, $http) {
+        	console.log('cds');
+            $http({
+                    method: 'POST',
+                    url: 'http://emapi.upliftlocal.com:1337/api/v1/find-domain-emails?access_token=' + accessToken,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $.param({
+                        domain: searchDomain
                     })
-                    .error(function(data, status) {
-                        console.log('error');
+                })
+                .success(function(response) {
+                    var error = 0;
+                    if (response.error.err_code == 0) {
+                        var headingemail = [];
+                        var emailDetail = [];
+                        for (var i = 0; i < response.email_id_detail.length; i++) {
+                            var email = [];
+
+                            var sourceDetailCount = response.email_id_detail[i].sources_detail.length;
+                            for (var j = 0; j < sourceDetailCount; j++) {
+                                email.push({
+                                    'url': response.email_id_detail[i].sources_detail[j].url,
+                                    'date': response.email_id_detail[i].sources_detail[j].last_updated_on
+                                });
+                            }
+                            headingemail.push({
+                                'email': response.email_id_detail[i].email_id,
+                                'source': email,
+                                'count': email.length
+                            });
+                        }
+                        $scope.emailitems = headingemail;
+                        $scope.items = emailDetail;
+                        $scope.errorVisible = false;
+                        $scope.accordianVisible = true;
+
+
+                    } else if (response.error.err_code == 404) {
+                        console.log('404');
+                    } else {
+                        console.log('errorrr');
+                        $scope.accordianVisible = false;
+                        $scope.errorVisible = true;
+                        error = 1;
+                    }
+
+                })
+                .error(function(data, status) {
+                    console.log('error' + data + status);
+                    $scope.accordianVisible = false;
+                    $scope.errorVisible = true;
+                })
+        }
+
+        function callProspectSearch(name, domain, accessToken, $scope, $http) {
+            var fullNameSplit = name.split(" ");
+            var firstName = fullNameSplit[0];
+            var lastName = fullNameSplit[1];
+            console.log('function  dds');
+            $http({
+                    method: 'POST',
+                    url: 'http://emapi.upliftlocal.com:1337/api/v1/name-search?access_token=' + accessToken,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $.param({
+                        first_name: firstName,
+                        last_name: lastName,
+                        domain: domain
+                    })
+                })
+                .success(function(response) {
+
+                    var error = 0;
+                    if (response.error.err_code == 0) {
+                        $scope.firstName = response.result.first_name;
+                        $scope.lastName = response.result.last_name;
+                        $scope.emailId = response.result.email_id;
+                        
+                    } else if (response.error.err_code == 404) {
+                        console.log('404');
+
+                    } else {
                         $scope.firstName = firstName;
                         $scope.lastName = lastName;
                         $scope.emailId = 'not-found-email';
-                        $scope.prospectVisible = true;
+                        error = 1;
+                    }
+                    $scope.prospectVisible = true;
+                    console.log('success');
 
-                    })
-            }
-        })
+                })
+                .error(function(data, status) {
+                    console.log('error');
+                    $scope.firstName = firstName;
+                    $scope.lastName = lastName;
+                    $scope.emailId = 'not-found-email';
+                    $scope.prospectVisible = true;
+
+                })
+        }
+
+        (function() {
+            var AccordionDemoCtrl = function($scope, $http, domainInit, $interval) {
+                $scope.searchterm = "www.domain.com";
+                $scope.domainFormat = /([a-z0-9]+\.)*[a-z0-9]+\.[a-z]+/;
+                $scope.emailsearch = "name@company.com";
+                $scope.emailFormat = /\S+@\S+\.\S+/;
+                $scope.domain = "www.domain.com";
+                $scope.fullname = "Full Name";
+                $scope.items = []
+                $scope.getItems = function() {
+                    var accessToken = '';
+                    // $scope.IsVisible = true;
+                    $scope.prospectVisible = false;
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/oauth/token',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                grant_type: "password",
+                                client_id: "android",
+                                client_secret: "SomeRandomCharsAndNumbers",
+                                username: "myapi",
+                                password: "abc1234"
+                            })
+                        })
+                        .success(function(response) {
+                            accessToken = response.access_token;
+                            var searchDomain = ($scope.searchterm);
+                            $http({
+                                    method: 'POST',
+                                    url: 'http://emapi.upliftlocal.com:1337/api/v1/find-domain-emails?access_token=' + accessToken,
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    data: $.param({
+                                        domain: searchDomain
+                                    })
+                                })
+                                .success(function(response) {
+
+                                    var error = 0;
+                                    if (response.error.err_code == 0) {
+
+                                        var headingemail = [];
+                                        var emailDetail = [];
+                                        for (var i = 0; i < response.email_id_detail.length; i++) {
+                                            var email = [];
+
+                                            var sourceDetailCount = response.email_id_detail[i].sources_detail.length;
+                                            for (var j = 0; j < sourceDetailCount; j++) {
+                                                email.push({
+                                                    'url': response.email_id_detail[i].sources_detail[j].url,
+                                                    'date': response.email_id_detail[i].sources_detail[j].last_updated_on
+                                                });
+                                            }
+                                            headingemail.push({
+                                                'email': response.email_id_detail[i].email_id,
+                                                'source': email,
+                                                'count': email.length
+                                            });
+                                        }
+                                        $scope.emailitems = headingemail;
+                                        console.log('success');
+
+                                        $scope.items = emailDetail;
+                                        $scope.errorVisible = false;
+                                        $scope.accordianVisible = true;
+
+                                    } else if (response.error.err_code == 404) {
+                                        domainInit.initDomainSearch(searchDomain, accessToken, $scope, $interval, $http);
+                                    } else {
+                                        console.log('error');
+                                        $scope.accordianVisible = false;
+                                        $scope.errorVisible = true;
+                                        error = 1;
+                                    }
+
+                                })
+                                .error(function(data, status) {
+                                    console.log('error' + data + status);
+                                    $scope.accordianVisible = false;
+                                    $scope.errorVisible = true;
+                                })
+                        })
+                        .error(function(data, status) {
+                            console.log('error' + status + data);
+                        })
+                }
+
+
+                $scope.getEmails = function() {
+                    var accessToken = '';
+                    var searchEmail = ($scope.emailsearch);
+                    $scope.accordianVisible = false;
+                    $scope.errorVisible = false;
+                    $scope.prospectVisible = false;
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/oauth/token',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                grant_type: "password",
+                                client_id: "android",
+                                client_secret: "SomeRandomCharsAndNumbers",
+                                username: "myapi",
+                                password: "abc1234"
+                            })
+                        })
+                        .success(function(response) {
+                            accessToken = response.access_token;
+                            $http({
+                                    method: 'POST',
+                                    url: 'http://emapi.upliftlocal.com:1337/api/v1/validate-email?access_token=' + accessToken,
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    data: $.param({
+                                        email_id: searchEmail
+                                    })
+                                })
+                                .success(function(response) {
+                                    console.log(response)
+                                    
+                                    if (response.error.err_code == 0) {
+                                        $scope.validEmail = response.result.email_id;
+                                        $scope.validEmailMessage = 'Valid email address';
+                                        $scope.emailVisible = true;
+
+                                    } else if (response.error.err_code == 404) {
+                                        domainInit.initEmailSearch(searchEmail, accessToken, $scope, $interval, $http);
+                                    } else {
+                                        $scope.validEmail = searchEmail;
+                                        $scope.validEmailMessage = 'invalid email address';
+                                        $scope.emailVisible = true;    
+                                    }
+                                    
+                                    console.log('success');
+
+                                })
+                                .error(function(data, status, error) {
+                                    console.log('in error')
+                                    console.log(data, '');
+
+                                    //console.log('error' +'      '+ data + '       '+status);
+                                    $scope.validEmail = searchEmail;
+                                    $scope.validEmailMessage = 'invalid email address';
+                                    $scope.emailVisible = true;
+
+
+                                })
+                        })
+                        .error(function(data, status) {
+                            console.log('error' + status + data);
+                        })
+                }
+                $scope.getProspect = function() {
+                    var accessToken = '';
+                    var fullName = ($scope.fullname);
+                    var domain = ($scope.domain);
+                    var fullNameSplit = fullName.split(" ");
+                    var firstName = fullNameSplit[0];
+                    var lastName = fullNameSplit[1];
+                    $scope.accordianVisible = false;
+                    $scope.errorVisible = false;
+                    $scope.emailVisible = false;
+                    $http({
+                            method: 'POST',
+                            url: 'http://emapi.upliftlocal.com:1337/api/oauth/token',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: $.param({
+                                grant_type: "password",
+                                client_id: "android",
+                                client_secret: "SomeRandomCharsAndNumbers",
+                                username: "myapi",
+                                password: "abc1234"
+                            })
+                        })
+                        .success(function(response) {
+                            accessToken = response.access_token;
+                            $http({
+                                    method: 'POST',
+                                    url: 'http://emapi.upliftlocal.com:1337/api/v1/name-search?access_token=' + accessToken,
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    data: $.param({
+                                        first_name: firstName,
+                                        last_name: lastName,
+                                        domain: domain
+                                    })
+                                })
+                                .success(function(response) {                             
+                                    if (response.error.err_code == 0) {
+                                        $scope.firstName = response.result.first_name;
+                                        $scope.lastName = response.result.last_name;
+                                        $scope.emailId = response.result.email_id;
+                                        $scope.prospectVisible = true;
+                                    } else if (response.error.err_code == 404) {
+                                        domainInit.initProspectSearch(fullName, domain, accessToken, $scope, $interval, $http);
+                                    } else {
+                                        $scope.firstName = firstName;
+                                        $scope.lastName = lastName;
+                                        $scope.emailId = 'not-found-email';
+                                        $scope.prospectVisible = true;
+                                    }
+                                    
+                                    console.log('success');
+
+                                })
+                                .error(function(data, status) {
+                                    console.log('error');
+                                    $scope.firstName = firstName;
+                                    $scope.lastName = lastName;
+                                    $scope.emailId = 'not-found-email';
+                                    $scope.prospectVisible = true;
+
+                                })
+                        })
+                        .error(function(data, status) {
+                            console.log('error' + status + data);
+                        })
+                }
+            };
+            app.controller('AccordionDemoCtrl', AccordionDemoCtrl);
+        }())
         </script>
         </script>
         <!-- Google CDN jQuery with fallback to local -->
