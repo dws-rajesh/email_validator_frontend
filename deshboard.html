@@ -18,7 +18,9 @@
     <!-- Meta -->
     <meta content="Default Description" name="description">
     <meta content="email" name="author">
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -30,8 +32,13 @@
     <!-- custom scrollbar stylesheet -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script> -->
     <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
@@ -254,6 +261,7 @@
         </div>
         <script>
         var app = angular.module('myApp', ['ui.bootstrap']);
+
         app.factory('domainInit', function() {
             return {
                 initDomainSearch: function(domain, accessToken, $scope, $interval, $http) {
@@ -268,6 +276,7 @@
                             data: $.param({
                                 domain: domain
                             })
+
                         })
                         .success(function(response) {
                             if (response.result.err_code == 0) {
