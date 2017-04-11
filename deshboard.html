@@ -18,9 +18,7 @@
     <!-- Meta -->
     <meta content="Default Description" name="description">
     <meta content="email" name="author">
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -32,13 +30,10 @@
     <!-- custom scrollbar stylesheet -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script> -->
     <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script> -->
     <script src="js/ui-bootstrap-tpls.min.js"></script>
-
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
@@ -161,19 +156,21 @@
                                 <div class="email-list-section mCustomScrollbar">
                                     <div class="acordation-bl">
                                         <div class="accordation-sec">
-                                            <accordion-group ng-repeat="group in emailitems" is-open="group.open">
-                                                <accordion-heading>
-                                                    {{group.email}}
-                                                    <div class="pull-right">
-                                                        <p>{{group.count}} <span>Source</span></p>
-                                                    </div>
-                                                </accordion-heading>
-                                                <ul class="find-mail-id">
-                                                    <li ng-repeat="item in group.source">
-                                                        <a href="{{item.url}}">{{item.url}}<span>{{item.date | date : "mediumDate"}}</span></a>
-                                                    </li>
-                                                </ul>
-                                            </accordion-group>
+                                            <accordion close-others="oneAtATime">
+                                                <accordion-group heading="Static Header, initially expanded" ng-repeat="group in emailitems" is-open="group.open">
+                                                    <accordion-heading>
+                                                        {{group.email}}
+                                                        <div class="pull-right">
+                                                            <p>{{group.count}} <span>Source</span></p>
+                                                        </div>
+                                                    </accordion-heading>
+                                                    <ul class="find-mail-id">
+                                                        <li ng-repeat="item in group.source">
+                                                            <a href="{{item.url}}">{{item.url}}<span>{{item.date | date : "mediumDate"}}</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </accordion-group>
+                                            </accordion>
                                         </div>
                                     </div>
                                     <div class="incate-info-area">
@@ -248,6 +245,87 @@
                             </div>
                         </div>
                         <!--end search-result-here-->
+                        <div class="recent-searches-mail">
+                            <div class="recent-email-bloc">
+                                <ul class="rc-heading-box">
+                                    <li>
+                                        <h4>Recent Searches</h4>
+                                    </li>
+                                    <li>
+                                        <a href="#">See All History</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="recent-list-item">
+                                <ul class="view-list-recent-search">
+                                    <li>
+                                        <div class="e-name-recent-s">
+                                            <h3><span class="s-name-t">D</span>devanshu@rankwatch.com<i class="green-ic"><img class="img-responsive" src="images/green-r-ico.png"></i></h3></div>
+                                        <div class="time-slot-s"> <span class="timeing-s">10 minutes ago</span>
+                                            <div class="history-btn-s">
+                                                <button class="history-panel-btn dropdown-toggle" type="button" data-toggle="dropdown"></button>
+                                                <ul class="dropdown-menu history-deatils-drop">
+                                                    <li class="active"><a href="#">More fo this email</a></li>
+                                                    <li><a href="#">Remove from History</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="e-name-recent-s">
+                                            <h3><span class="s-name-t">D</span>devanshu@rankwatch.com<i class="yellow-ic"><img class="img-responsive" src="images/green-r-ico.png"></i></div>
+                                        <div class="time-slot-s"><span class="timeing-s">10 minutes ago</span>
+											<div class="history-btn-s">
+											<button class="history-panel-btn dropdown-toggle" type="button" data-toggle="dropdown"></button>
+											<ul class="dropdown-menu history-deatils-drop">
+											<li class="active"><a href="#">More fo this email</a></li>
+											<li><a href="#">Remove from History</a></li>
+											</ul>
+											</div>
+										</div>				
+									</li>
+									<li><div class="e-name-recent-s"><h3><span class="s-name-t">D</span>devanshu@rankwatch.com<i class="gray-ic"><img class="img-responsive" src="images/gray-r-ico.png"></i></div>
+                                        <div class="time-slot-s"><span class="timeing-s">10 minutes ago</span>
+											<div class="history-btn-s">
+											<button class="history-panel-btn dropdown-toggle" type="button" data-toggle="dropdown"></button>
+											<ul class="dropdown-menu history-deatils-drop">
+											<li class="active"><a href="#">More fo this email</a></li>
+											<li><a href="#">Remove from History</a></li>
+											</ul>
+											</div>
+										</div>				
+									</li>
+									<li><div class="e-name-recent-s"><h3><span class="s-name-t">D</span>devanshu@rankwatch.com<i class="gray-ic"><img class="img-responsive" src="images/gray-r-ico.png"></i></div>
+                                        <div class="time-slot-s"> <span class="timeing-s">10 minutes ago</span>
+                                        	<div class="history-btn-s">
+											<button class="history-panel-btn dropdown-toggle" type="button" data-toggle="dropdown"></button>
+											<ul class="dropdown-menu history-deatils-drop">
+											<li class="active"><a href="#">More fo this email</a></li>
+											<li><a href="#">Remove from History</a></li>
+											</ul>
+											</div>
+										</div>				
+									</li>
+									<li><div class="e-name-recent-s"><h3><span class="s-name-t">D</span>devanshu@rankwatch.com<i class="red-ic"><img class="img-responsive" src="images/red-c-icon.png"></i></div>
+                                        <div class="time-slot-s"> <span class="timeing-s">10 minutes ago</span>
+                                         	<div class="history-btn-s">
+											<button class="history-panel-btn dropdown-toggle" type="button" data-toggle="dropdown"></button>
+											<ul class="dropdown-menu history-deatils-drop">
+											<li class="active"><a href="#">More fo this email</a></li>
+											<li><a href="#">Remove from History</a></li>
+											</ul>
+											</div>
+
+										</div>				
+									</li>
+								   
+								   </ul>
+							
+							    </div>
+								<div class="clear"></div>
+							</div>
+                         </div>
+
                     </div>
                     <!--end validates-email-listing-block-->
                     <div class="clear"></div>
@@ -479,7 +557,7 @@
                 })
                 .success(function(response) {
                     var error = 0;
-                    if (response.error.err_code == 0) {
+                    if (response.error.err_code == 0) {                    	
                         var headingemail = [];
                         var emailDetail = [];
                         for (var i = 0; i < response.email_id_detail.length; i++) {
@@ -610,7 +688,7 @@
                                     })
                                 })
                                 .success(function(response) {
-
+                                    
                                     var error = 0;
                                     if (response.error.err_code == 0) {
 
@@ -632,7 +710,9 @@
                                                 'count': email.length
                                             });
                                         }
+                                        console.log(headingemail);
                                         $scope.emailitems = headingemail;
+                                        console.log($scope.emailitems );
                                         console.log('success');
 
                                         $scope.items = emailDetail;
